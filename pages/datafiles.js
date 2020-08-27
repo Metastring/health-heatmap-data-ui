@@ -1,6 +1,7 @@
 import Head from "next/head";
 import * as api from "../utils/api";
 import Link from "next/link";
+import DataFileFieldsViewer from "../components/DataFileFieldsViewer";
 
 const DataFileListItem = ({ name }) => {
   return (
@@ -27,6 +28,7 @@ export default function DataFiles({ data, fileData, fileName }) {
         </div>
         <div>
             {fileName}
+            {fileData == null ? null : <DataFileFieldsViewer fields={fileData.fields} />}
         </div>
       </main>
     </div>
@@ -39,7 +41,7 @@ export async function getServerSideProps({query}) {
   const data = await res.json();
 
   const fileRes = name === undefined ? undefined : await api.getDatafile(name);
-  const fileData = fileRes === undefined ? undefined : await fileRes.json();
+  const fileData = fileRes === undefined ? null : await fileRes.json();
 
-  return { props: { data, fileData, fileName: name } };
+  return { props: { data, fileData, fileName: name || null } };
 }
