@@ -14,8 +14,8 @@ export default function CSVViewer({ fileUrl }) {
 
   useEffect(() => {
     const s = new Spreadsheet(element.current, {
-
     })
+    s.load(fileUrl, 'csv')
     return () => s.destructor()
   }, [data])
 
