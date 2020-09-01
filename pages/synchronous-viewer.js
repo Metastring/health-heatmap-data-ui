@@ -8,12 +8,12 @@ const CSVViewer  = dynamic(
   {ssr: false}
 )
 
-const getpdfurlfrombase = (base, number) => `${base}${number}.pdf`;
-const getcsvurlfrombase = (base, number) => `${base}${number}.csv`;
+const getpdfurlfrombase = (base, number) => `/api/file?name=${encodeURIComponent(base)}${number}.pdf`;
+const getcsvurlfrombase = (base, number) => `/api/file?name=${encodeURIComponent(base)}${number}.csv`;
 
 export default function SynchronousViewer({}) {
-  const [pdfbaseurl, setpdfbaseurl] = useState("http://localhost:8080/");
-  const [csvbaseurl, setcsvbaseurl] = useState("http://localhost:8080/clean/");
+  const [pdfbaseurl, setpdfbaseurl] = useState("src/github/Metastring/data-wrangling-scripts/idsp/data/2018/");
+  const [csvbaseurl, setcsvbaseurl] = useState("src/github/Metastring/data-wrangling-scripts/idsp/data/2018/clean/");
   const [filenumber, setfilenumber] = useState(1);
   const [pdfurl, setpdfurl] = useState(
     getpdfurlfrombase(pdfbaseurl, filenumber)

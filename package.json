@@ -11,6 +11,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "@flighter/a1-notation": "^1.0.6",
     "@phuocng/react-pdf-viewer": "^1.7.0",
     "dhx-spreadsheet": "^3.1.4",
     "emotion-theming": "^10.0.27",
